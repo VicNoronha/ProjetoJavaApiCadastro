@@ -28,11 +28,16 @@ O principal objetivo deste projeto é:
 
 ###  Funcionalidades
 
-Cadastrar usuário
-Atualizar dados do usuário
-Excluir usuário
-Buscar usuário por ID
-Listar todos os usuários cadastrados
+Cadastrar usuário;
+
+Atualizar dados do usuário;
+
+Excluir usuário;
+
+Buscar usuário por ID;
+
+Listar todos os usuários cadastrados;
+
 
 
 
