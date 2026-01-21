@@ -1,3 +1,7 @@
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class UsuarioServicos {
     // Nessa classe vamos fazer as validações do login e senha
 
@@ -13,9 +17,10 @@ public class UsuarioServicos {
         return !usuario.getStatus().equalsIgnoreCase("ATIVO"); //Simplificado pela IDE
     }
 
-    public boolean DesativarCadastro(Usuario usuario) {
+
+    public boolean DesativarCadastro(Usuario usuario) { // Método para Desativar Cadastro de usuários
         //Verifica se é um usuário válido
-        if (usuario == null){
+        if (usuario == null) {
             return false;
         }
         // Verifica se o usuário está ativo
@@ -25,9 +30,20 @@ public class UsuarioServicos {
         usuario.setStatus("INATIVO");
         return true;
 
-        }
     }
 
 
+    List<String> ListadeEmails = new ArrayList<>(); // Lista de emails
 
+    public String CadastrarNovoUsuario(String nome, String email, String dataNascimento) { // Método para Cadastrar novos usuários no sistema
 
+        for (String emailCadastrado : ListadeEmails) { // For verifica a lista de e-mails
+            if (emailCadastrado.equalsIgnoreCase(email)) {
+                return " O e-mail já está cadastrado, por favor efetue o login ";
+            }
+        }
+
+        ListadeEmails.add(email); // Add o e-mail novo na lista de cadastro
+        return " O usuário cadastrado com sucesso ";
+    }
+}
