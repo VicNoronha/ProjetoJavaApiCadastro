@@ -1,35 +1,22 @@
+package Modelo;
+
 public class Usuario {
 // Nessa classe temos os dados dos usuários
 
-    private String Nome;
+    private String nome;
     private String email;
     private String status;
     private int dataNascimento;
-    private int ID;
+    private int id;
     private String senha;
-
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+    private String cpf;
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
     }
 
     public String getEmail() {
@@ -56,6 +43,27 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 }

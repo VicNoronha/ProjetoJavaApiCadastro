@@ -1,8 +1,12 @@
-import java.awt.*;
+package Servicos;
+
+import Modelo.Usuario;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsuarioServicos {
+public class Servicos {
+
     // Nessa classe vamos fazer as validações do login e senha
 
     public boolean login(Usuario usuario, String email, String senha) {
@@ -14,11 +18,11 @@ public class UsuarioServicos {
         if (!usuario.getSenha().equals(senha)) {
             return false;
         }
-        return !usuario.getStatus().equalsIgnoreCase("ATIVO"); //Simplificado pela IDE
+        return usuario.getStatus().equalsIgnoreCase("ATIVO");
     }
 
 
-    public boolean DesativarCadastro(Usuario usuario) { // Método para Desativar Cadastro de usuários
+    public boolean desativarCadastro(Usuario usuario) {
         //Verifica se é um usuário válido
         if (usuario == null) {
             return false;
@@ -27,23 +31,48 @@ public class UsuarioServicos {
         if (!usuario.getStatus().equalsIgnoreCase("ATIVO")) {
             return false;
         }
-        usuario.setStatus("INATIVO");
+        usuario.setStatus("INATIVO"); // Só desativa o cadastro se tiver ativo
         return true;
 
     }
 
 
-    List<String> ListadeEmails = new ArrayList<>(); // Lista de emails
+    private List<String> listadeEmails = new ArrayList<>();
 
-    public String CadastrarNovoUsuario(String nome, String email, String dataNascimento) { // Método para Cadastrar novos usuários no sistema
+    public String cadastrarNovoUsuario (String email) {
 
-        for (String emailCadastrado : ListadeEmails) { // For verifica a lista de e-mails
+        for (String emailCadastrado : listadeEmails) {
             if (emailCadastrado.equalsIgnoreCase(email)) {
                 return " O e-mail já está cadastrado, por favor efetue o login ";
             }
         }
 
-        ListadeEmails.add(email); // Add o e-mail novo na lista de cadastro
+        listadeEmails.add(email);
         return " O usuário cadastrado com sucesso ";
     }
+
+
+// Método para BuscarUsuários
+
+    public String buscaUsuario (String email) {
+        for (String emailSalvo : listadeEmails) {
+            if (emailSalvo.equalsIgnoreCase(email)) {
+                return "O email já está cadastrado";
+            }
+        }
+        return "Usuário não encontrado";
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
