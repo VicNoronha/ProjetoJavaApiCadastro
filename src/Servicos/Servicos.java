@@ -12,10 +12,10 @@ public class Servicos {
     public boolean login(Usuario usuario, String email, String senha) {
         // Verifica se os dados são válidos para autenticar o usuário
 
-        if (!usuario.getEmail().equals(email)) {    // Se o email digitado não for igual ao email cadastrado: login inválido
+        if (usuario == null|| usuario.getEmail()==null) {
             return false;
         }
-        if (!usuario.getSenha().equals(senha)) {
+        if (usuario == null || !senha.equals(usuario.getSenha())) {
             return false;
         }
         return usuario.getStatus().equalsIgnoreCase("ATIVO");

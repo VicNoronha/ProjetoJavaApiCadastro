@@ -11,6 +11,10 @@ public class Usuario {
     private String senha;
     private String cpf;
 
+    public Usuario(String vicc, String s, String number, String ativo) {
+
+    }
+
     public String getNome() {
         return nome;
     }

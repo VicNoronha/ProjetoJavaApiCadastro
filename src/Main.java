@@ -6,24 +6,41 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-        System.out.println("----------------------------------------------");
-        System.out.println("-------Plataforma de cadastro --------");
-        System.out.println("Digite o seu e-mail cadastrado");
         Scanner scanner = new Scanner(System.in);
+        Servicos servicos = new Servicos();
+
+        Usuario usuarioCadastrado = new Usuario("Vicc",
+                "vicc.noronha@gmail.com ",
+                "234424",
+                "ATIVO");
+
+        System.out.println("---------------------------------------");
+        System.out.println("-------Plataforma de Cadastro -------");
+        System.out.println("Digite o e-mail cadastrado: ");
         String emailUsuario = scanner.nextLine();
-        System.out.println("Digite a senha ");
-        int senha = scanner.nextInt();
+
+        System.out.println("Digite a senha: ");
+        String senhaUsuario = scanner.nextLine();
+
+        boolean loginValido = servicos.login(usuarioCadastrado, emailUsuario, senhaUsuario);
+        if(loginValido){
+            System.out.println("Login realizado com sucesso");
+        } else {
+            System.out.println("Dados inválidos");
+        }
 
 
-        Servicos login = new Servicos();
-        login.cadastrarNovoUsuario(emailUsuario + senha );
-        System.out.println(emailUsuario);
+        scanner.close();
 
-        Servicos desativarCadastro = new Servicos();
-        desativarCadastro.buscaUsuario("usuari2@gmail.com");
-        desativarCadastro.buscaUsuario("usuario2@gmail.com");
-       // System.out.println(desativarCadastro);
+
+
+
+
+
+
+
+
+
 
     }
 }
